@@ -1,0 +1,97 @@
+<!--Arquitectura u2
+Autor: Lilian Ramos-->
+<html>
+<head>
+	<title>UNIDAD 2</title>
+	<meta charset = "UTF-8">
+	<link rel="stylesheet" type="text/css" media="screen" href="Style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
+</head>
+<body>
+<body class="FondoU2">
+	<h1 class="fontU" align="center">Estructura y asociamiento de la cantidad central del procesamiento</h1>
+	<img src="cpu.png" width="500" height="300" align="center">
+	<div  class="bloqueU2">
+		<p>
+		<p align="center">2.1 Organizacion del procesador</p>
+		La función principal de un procesador es ejecutar instrucciones y la organización que tiene viene condicionada por las tareas que debe realizar y por cómo debe hacerlo. 
+		Los procesadores están diseñados y operan según una señal de sincronización. Esta señal, conocida como señal de reloj, es una señal en forma de onda cuadrada periódica con una determinada frecuencia. 
+		Todas las operaciones hechas por el procesador las gobierna esta señal de reloj: un ciclo de reloj determina la unidad básica de tiempo, es decir, la duración mínima de una operación del procesador. 
+		Para ejecutar una instrucción, son necesarios uno o más ciclos de reloj, dependiendo del tipo de instrucción y de los operandos que tenga. Las prestaciones del procesador no las determina solo la frecuencia de reloj, 
+		sino otras características del procesador, especialmente del diseño del juego de instrucciones y la capacidad que tiene para ejecutar simultáneamente múltiples instrucciones.
+		</p>
+		<p>
+		<p align="center">2.2 Estrucutura de registros</p>
+		Se emplean para controlar las instrucciones en ejecución, manejar direccionamiento de memoria y propiciar la capacidad aritmética. 
+		Los registros vienen de tres tipos: datos, direcciones e índice, que tiene lugar en casi todos los aspectos de la operación del CPU. 
+		El tamaño de un registro depende del CPU; los más simples tienen registros que aceptan 8 o 16 bits de datos y los más complejos tienen registros de 32, 48 o 64 bits.
+		</p>
+		<p>
+		<p align="center">2.2.1 Registros visibles para el usuario</p>
+		Los registros en la CPU sirven para dos funciones: • Registros visibles para el usuario: permiten al programador minimizar las referencias a la memoria principal mediante la optimización de su uso.
+		• Registros de control y estado: son utilizados por la unidad de control para controlar la operación de la CPU y por los programas del sistema operativo para controlar la ejecución de programas.
+		REGISTROS VISIBLES PARA EL USUARIO. Un registro visible para el usuario es aquél que puede referenciarse por medio del lenguaje máquina que la CPU ejecuta. Se pueden caracterizar en las siguientes categorías: • Propósito general.
+		• Datos.
+		• Direcciones.
+		• Códigos condicionales.
+		Los registros de propósito general son utilizados por el programador para diversas funciones. En principio cualquier registro puede utilizarse para contener el operando de cualquier instrucción. No obstante, pueden existir restricciones (por ejemplo, pueden existir registros para operaciones en coma flotante). 
+		En algunos casos, estos registros pueden utilizarse para funciones de direccionamiento (por ejemplo, desplazamiento, indirecto por registro). En otros casos, existe una distinción clara entre registros de datos y direcciones. Los primeros sólo pueden contener datos, mientras que los segundos pueden ser también de propósito general o estar dedicados a un modo particular de direccionamiento. Por ejemplo:
+		• Punteros de segmento: en máquinas con direccionamiento segmentado, un registro segmento contiene la dirección de la base del segmento. Puede haber múltiples registros, por ejemplo uno para el sistema operativo y otro para el proceso actual.
+		• Registros índice: Se utilizan para direccionamiento indexado y pueden ser autoindexados.
+		• Puntero de pila: si existe direccionamiento por pila visible al usuario, el pila está generalmente en memoria y hay un registro dedicado que apunta a la cima. Esto permite direccionamiento implícito.
+		Con el uso de registros especializados, pueden estar implícitos en el código de operación, ahorrando bits del especificador, que sólo deberá distinguir uno entre un conjunto determinado y no uno de entre todos los registros. No obstante, la excesiva especialización limita la flexibilidad.
+		</p>
+		<p>
+		<p align="center">2.2.2 Registros de control y de estados</p>
+		Hay diversos registros del procesador que se emplean para controlar su funcionamiento. La mayor´ıa de ellos, en la mayor parte de las maquinas no son visibles por el usuario, pero alguno de ellos puede ser visible por ciertas instrucciones maquina ejecutadas en un modo privilegiado o de sistema operativo. Naturalmente, diferentes maquinas tendran distinta organizacion de registros y usaran distinta terminologıa. 
+		esenciales cuatro registros para la ejecucion de una instruccion: Contador de programa (Program Counter- PC): Contiene la direccion de la instruccion a buscar
+		<p>Registro de instruccion (Instruction Register- IR): Contiene la instruccion buscada mas recientemente</p>
+		<p>Registro de direccion de memoria (Memory Address Register- MAR) Contiene la direcci´on de una posicion de memoria</p>
+		<p>Registro amortiguador de memoria (Memory Buffer Register - MBR) Contiene el dato a escribir en una posicion de memoria o el dato contenido en una posicion de memoria leıdo mas recientemente.</p>
+		</p>
+		<p>
+		<p align="center">2.2.3 Ejemplos de registros en CPU's</p>
+		La CPU tiene 14 registros internos, cada uno de 16 bits. Los primeros cuatro, AX, BX, CX, y DX son registros de uso general y también pueden ser utilizados como registros de 8 bits, para utilizarlos como tales es necesario referirse a ellos como por ejemplo: AH y AL, que son los bytes alto (high) y bajo (low) del registro AX. Esta nomenclatura es aplicable también a los registros BX, CX y DX.
+		<p>-AX Acumulador.</p>
+		<p>-BX Registro base.</p>
+		<p>-CX Registro contador.</p>
+		<p>-DX Registro de datos.</p>
+		<p>-DS Registro del segmento de datos.</p>
+		<p>-ES Registro del segmento extra.</p>
+		<p>-SS Registro del segmento de pila.</p>
+		<p>-CS Registro del segmento de código.</p>
+		</p>
+		<p>
+		<p align="center">2.3 El ciclo de instrucción</p>
+		Un ciclo de instrucción (también llamado ciclo de fetch-and-execute o ciclo de fetch-decode-execute en inglés) es el período que tarda la unidad central de proceso (CPU) en ejecutar una instrucción de lenguaje máquina.
+		<p>1. Buscar la instrucción en la memoria principal</p>
+		Se vuelca el valor del contador de programa sobre el bus de direcciones. Entonces la CPU pasa la instrucción de la memoria principal a través del bus de datos al Registro de Dirección de Memoria (MAR). A continuación el valor del MAR es colocado en el Registro de Instrucción Actual (CIR), un circuito que guarda la instrucción temporalmente de manera que pueda ser decodificada y ejecutada.
+		<p>2. Decodificar la instrucción</p>
+		El decodificador de instrucción interpreta e implementa la instrucción. El registro de instrucción (IR) mantiene la instrucción en curso mientras el contador de programa (PC, program counter) guarda la dirección de memoria de la siguiente instrucción a ser ejecutada. Recogida de datos desde la memoria principal Se accede al banco de registros por los operandos (solo si es necesario) Se calcula el valor del operando inmediato con extensión de signo (solo si es necesario) También se lee la dirección efectiva de la memoria principal si la instrucción tiene una dirección indirecta, y se recogen los datos requeridos de la memoria principal para ser procesados y colocados en los registros de datos.
+		<p>3. Ejecutar la instrucción</p>
+		A partir del registro de instrucción, los datos que forman la instrucción son decodificados por la unidad de control. Ésta interpreta la información como una secuencia de señales de control que son enviadas a las unidades funcionales relevantes de la CPU para realizar la operación requerida por la instrucción poder terminarla y seguir así.
+		</p>
+		<p align="center">2.3.1 Segmentación de instrucciones</p>
+		El objetivo de la segmentación es ejecutar simultáneamente diferentes etapas de distintas instrucciones, lo cual permite aumentar el rendimiento del procesador sin tener que hacer más rápidas todas las unidades del procesador (ALU, UC, buses, etc.) y sin tener que duplicarlas. La división de la ejecución de una instrucción en diferentes etapas se debe realizar de tal manera que cada etapa tenga la misma duración, generalmente un ciclo de reloj. Es necesario añadir registros para almacenar los resultados intermedios entre las diferentes etapas, de modo que la información generada en una etapa esté disponible para la etapa siguiente.
+		<p align="center">2.3.2 Ciclo FDE</p>
+		Los procesadores no son diferentes desde cierto punto de vista a un motor de combustión, los cuales siempre realizan un proceso continuo de explosión del combustible en diferentes etapas, ya sean de 2 tiempos o de 4 tiempos. El motivo de ello es que los procesadores funcionan en tres etapas distintas en su versión más simple que son las siguientes:
+		<p>-Fetch o Captación: En la que la instrucción es captada desde la memoria RAM y copiada a dentro del procesador.</p>
+		<p>-Decode o Descodificacion: En la que la instrucción previamente captada es descodificada y enviada a las unidades de ejecución</p>
+		<p>-Execute o Ejecución: Donde la instrucción es resuelta y el resultado escrito en los registros internos del procesador o en una dirección de memoria de la RAM</p>
+		<p align="center">2.3.3 Conjunto de instrucciones caracteristicas y funciones</p>
+		Ante el diseño de un nuevo ordenador de propósito general hay que plantearse la siguiente cuestión: ¿Qué tipos de instrucciones deben ser incluidos en su conjuntos de instrucciones? Antes de responder a esta pregunta, analizaremos las características que deben tener los juegos de instrucciones de las máquinas. Los conjuntos de instrucciones de las máquinas deben tender a poseer una serie de propiedades, bastante ideales e imprecisas, que pueden resumirse en las siguientes: El conjunto de instrucciones de un computador debe ser completo en el sentido de que se pueda construir un programa para evaluar una función computable usando una cantidad de memoria razonable y empleando un tiempo moderado, 
+		es decir, el número de instrucciones de ese programa no debe ser demasiado elevado.
+		<p align="center">2.3.4 Modos de almacenamiento</p>
+		Los ordenadores utilizan técnicas de direccionamiento con los siguientes fines:
+		<p>Dar versatilidad de programación al usuario proporcionando facilidades tales como índices, direccionamientos indirectos, etc., esta versatilidad nos servirá para manejar estructuras de datos complejas como vectores, matrices, etc. Reducir el número de bits del campo de operando.</p>
+		<p>Al usuario que tiene poca experiencia, la variedad de modos de direccionamiento en un procesador le puede parecer excesivamente complicada. Sin embargo, la disponibilidad de diferentes esquemas de direccionamiento le da al programador experimentado flexibilidad para escribir programas que son más eficientes en cuanto a número de instrucciones y tiempo de ejecución.</p>
+		<p align="center">2.4 Casos de estudio de CPU's</p>
+		La CPU se compone de seis elementos clave que trabajan en combinaciónpara procesar y ejecutar comandos. 
+		<p>1.- En primer lugar la unidad de control es el cerebro de la CPU. Esta parterecibe los datos de entrada y decide dónde enviar la in!ormación procesada.".
+		<p>2.- En segundo lugar el cac#$ de instrucciones es donde se almacenan lasinstrucciones de la unidad de control. Los datos de instrucción secargan en la CPU al momento de !abricarla.'.
+		<p>3.- En tercer lugar la unidad de captación previa es el portal de información.Los datos de entrada pasan a traves de la captación previa que almacenauna copia de los datos antes de enviarlos a ser procesados por la unidad decontrol.
+	</div>
+</body>
+</html>
